@@ -1,10 +1,10 @@
 # C++ 数据结构与算法
 
-Read this in other languages: 🇬🇧[English](README.md)
+> Read this in other languages: 🇬🇧[_English_](README.md)
 
-本仓库使用C++语言实现常见的数据结构与算法。
+本仓库包含了多种基于 C++ 的算法与数据结构。
 
-> 注意：这个项目仅用于学习和研究，**不是**用于生产环境。
+*☝注意：本项目仅用于学习和研究，**不是**用于生产环境。*
 
 ## 数据结构
 
@@ -12,25 +12,13 @@ Read this in other languages: 🇬🇧[English](README.md)
 
 `B` - 初学者， `A` - 进阶
 
-* `B` [链表](src/data-structures/linked-list/README.zh-CN.md)
-* `B` [双向链表](src/data-structures/doubly-linked-list/README.zh-CN.md)
-* `B` [队列](src/data-structures/queue/README.zh-CN.md)
-* `B` [栈](src/data-structures/stack/README.zh-CN.md)
-* `B` [哈希表(散列)](src/data-structures/hash-table/README.zh-CN.md)
-* `B` [堆](src/data-structures/heap/README.zh-CN.md) - 最大堆 & 最小堆
-* `B` [优先队列](src/data-structures/priority-queue/README.zh-CN.md)
-* `A` [字典树](src/data-structures/trie/README.zh-CN.md)
-* `A` [树](src/data-structures/tree/README.zh-CN.md)
-  * `A` [二叉查找树](src/data-structures/tree/binary-search-tree)
-  * `A` [AVL 树](src/data-structures/tree/avl-tree)
-  * `A` [红黑树](src/data-structures/tree/red-black-tree)
-  * `A` [线段树](src/data-structures/tree/segment-tree) - 使用 `最小/最大/总和` 范围查询示例
-  * `A` [树状数组](src/data-structures/tree/fenwick-tree) (二叉索引树)
-* `A` [图](src/data-structures/graph/README.zh-CN.md) (有向图与无向图)
-* `A` [并查集](src/data-structures/disjoint-set)
-* `A` [布隆过滤器](src/data-structures/bloom-filter)
+* `B` [链表](data-structures/linked-list/README.md)
 
 ## 算法
+
+算法是如何解决一类问题的明确规范。算法是一组精确定义操作序列的规则。
+
+`B` - 初学者， `A` - 进阶
 
 ## 如何使用本仓库
 
@@ -42,6 +30,8 @@ Read this in other languages: 🇬🇧[English](README.md)
 2. 
 
 ## 有用的信息
+
+### 大O符号
 
 大O符号中指定的算法的增长顺序。
 
@@ -90,4 +80,6 @@ Read this in other languages: 🇬🇧[English](README.md)
 | **计数排序**          | n + r     | n + r     | n + r         | n + r     | Yes       | r - 数组里最大的数    |
 | **基数排序**          | n * k     | n * k     | n * k         | n + k     | Yes       | k - 最长 key 的升序   |
 
-> ℹ️ A few more [projects](https://trekhleb.dev/projects/) and [articles](https://trekhleb.dev/blog/) about JavaScript and algorithms on [trekhleb.dev](https://trekhleb.dev)
+
+## 参考
+1. [trekhleb的javascript-algorithms仓库](https://github.com/trekhleb/javascript-algorithms)
