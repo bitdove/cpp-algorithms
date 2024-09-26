@@ -109,6 +109,48 @@ void DoublyLinkedList::pop_at(const unsigned &index){
   --_size;
 }
 
+// Modify
+void DoublyLinkedList::change_at(const unsigned &index, const int &new_value){
+  if(index >= _size){
+    std::cout << "change_at(): Please input valid index!" << std::endl;
+    return;
+  }
+  _Node *pos = get_node(index);
+  pos->_value = new_value;
+}
+
+void DoublyLinkedList::change_eq_first(const int &value, const int &new_value){
+  int index = contains(value);
+  if(index == -1){
+    std::cout << "change_eq_first(): There is no node equal to the given value!" << std::endl;
+    return;
+  } else{
+    _Node *pos = get_node(index);
+    pos->_value = new_value;
+    return;
+  }
+}
+
+// Check
+
+int DoublyLinkedList::contains(const int &value) const{
+  if(is_empty()){
+    std::cout << "contains(): This DoublyLinkedList is empty!" << std::endl;
+    return -1;
+  }
+  _Node *current = _head;
+  int curr_index = 0;
+  while(current && current->_value != value){
+    current = current->_next;
+    ++curr_index;
+  }
+  return current ? curr_index : -1;
+}
+
+void DoublyLinkedList::print() const{
+
+}
+
 // Private functions
 DoublyLinkedList::_Node *DoublyLinkedList::get_node(const int &index){
   if(index == 0) {return _head;}
