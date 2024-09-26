@@ -232,6 +232,7 @@ LinkedList::~LinkedList(){
   while(current){
     _Node *next = current->_next;
     delete current;
+    --_dummy->_value;
     current = next;
   }
   delete _dummy;

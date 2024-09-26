@@ -4,6 +4,8 @@
 
 This repository contains C++ based examples of many popular algorithms and data structures.
 
+Each algorithm and data structure has its own separate README with related explanations and links for further reading.
+
 *☝ Note that this project is meant to be used for learning and researching purposes
 only, and it is **not** meant to be used for production.*
 
@@ -16,6 +18,7 @@ Remember that each data has its own trade-offs. And you need to pay attention mo
 `B` - Beginner, `A` - Advanced
 
 * `B` [Linked List](data-structures/linked-list)
+* `B` [Doubly Linked List](data-structures/doubly-linked-list)
 
 ## Algorithms
 
@@ -30,6 +33,8 @@ Every directorys under */data-structures* or */algorithms* should be treated as 
 
 ```
 .
+├── assets
+│   └── linkedlist.jpg
 ├── build.sh
 ├── clean.sh
 ├── CMakeLists.txt

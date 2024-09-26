@@ -4,6 +4,8 @@
 
 本仓库包含了多种基于 C++ 的算法与数据结构。
 
+每种算法和数据结构都有自己的 README，包含相关说明和链接，以便进一步阅读 (还有 YouTube 视频) 。
+
 *☝注意：本项目仅用于学习和研究，**不是**用于生产环境。*
 
 ## 数据结构
@@ -22,12 +24,23 @@
 
 ## 如何使用本仓库
 
-- 依赖
-  
-  请安装CMake
 1. 克隆本仓库至本地。
 
-2. 
+```bash
+git clone https://github.com/MasonCodingHere/cpp-algorithms.git
+```
+
+2. 进入仓库目录，选择你感兴趣的数据结构或算法，以链表为例。
+
+```bash
+cd cpp-algorithms/data-structures/linked-list
+```
+3. 构建
+
+```bash
+./build.sh
+```
+
 
 ## 有用的信息
 
