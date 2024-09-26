@@ -12,7 +12,7 @@
 
 `B` - 初学者， `A` - 进阶
 
-* `B` [链表](data-structures/linked-list/README.md)
+* `B` [链表](data-structures/linked-list)
 
 ## 算法
 
