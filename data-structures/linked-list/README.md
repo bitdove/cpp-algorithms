@@ -8,7 +8,7 @@
 
 更快的访问，如随机访问，是不可行的。与链表相比，数组具有更好的缓存位置。
 
-![Linked List](/cpp-algorithms/assets/linked-list/linkedlist.jpg)
+![Linked List](./assets/linkedlist.jpg)
 
 *Made with [okso.app](https://okso.app)*
 
