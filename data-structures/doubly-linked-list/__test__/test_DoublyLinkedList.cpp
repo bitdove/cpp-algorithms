@@ -3,24 +3,24 @@
 #include "../include/DoublyLinkedList.h"
 
 int main(int argc, char* argv[]){
-  DoublyLinkedList dList;
-  assert(dList.get_size() == 0);
-  assert(dList.is_empty() == true);
+  DoublyLinkedList<int> dList;
+  assert(dList.size() == 0);
+  assert(dList.empty() == true);
   dList.push_back(5);
   dList.push_front(9);
   dList.push_back(2);
   dList.push_back(1);
   dList.push_front(3);
   dList.push_at(2, 4); // 3 9 4 5 2 1
-  assert(dList.get_size() == 6);
-  assert(dList.is_empty() == false);
-  std::cout << "is_empty() and get_size() test passed!" << std::endl;
+  assert(dList.size() == 6);
+  assert(dList.empty() == false);
+  std::cout << "empty() and size() test passed!" << std::endl;
   dList.pop_back();
   dList.pop_front(); // 9 4 5 2
-  assert(dList.get_size() == 4);
+  assert(dList.size() == 4);
   dList.pop_at(2); // 9 4 2
-  assert(dList.get_size() == 3);
-  std::cout << "pop passed!" << std::endl;
+  assert(dList.size() == 3);
+  std::cout << "pop test passed!" << std::endl;
   dList.push_front(3);
   dList.push_back(1);
   dList.push_back(6);
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
   dList.change_eq_all(6, 1); // 3 9 1 7 2 1 1
   dList.change_eq_first(1, 4); // 3 9 4 7 2 1 1
   dList.change_eq_last(1, 5); // 3 9 4 7 2 1 5
-  assert(dList.get_size() == 7);
+  assert(dList.size() == 7);
   assert(dList.front() == 3);
   assert(dList.back() == 5);
   assert(dList.get_at(3) == 7);
@@ -41,10 +41,11 @@ int main(int argc, char* argv[]){
   assert(dList.get_at(4) == 2);
   assert(dList.get_at(5) == 1);
   assert(dList.get_at(6) == 5);
-  std::cout << "check passed!" << std::endl;
+  std::cout << "check test passed!" << std::endl;
   dList.print();
   dList.print_reverse();
   dList.reverse(); // 5 1 2 7 4 9 3
+  std::cout << "reverse test passed" << std::endl;
   assert(dList.get_at(0) == 5);
   assert(dList.get_at(1) == 1);
   assert(dList.get_at(2) == 2);
@@ -54,6 +55,6 @@ int main(int argc, char* argv[]){
   assert(dList.get_at(6) == 3);
   dList.print();
   dList.print_reverse();
-
+  std::cout << "All test passed" << std::endl;
   return 0;
 }
