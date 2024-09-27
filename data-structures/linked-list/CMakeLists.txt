@@ -14,7 +14,6 @@ include_directories(include)
 # Output executables to the 'bin' directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
-
 # Add the test executable
 add_executable(test_linkedlist __test__/test_LinkedList.cpp)
 

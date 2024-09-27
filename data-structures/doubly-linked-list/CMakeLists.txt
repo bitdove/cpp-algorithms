@@ -17,9 +17,6 @@ include_directories(include)
 # Output executables to the 'bin' directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
-# Add the main library (DoublyLinkedList)
-add_library(DoublyLinkedList src/DoublyLinkedList.cpp)
-
 # Add the test executable
 add_executable(test_doublylinkedlist __test__/test_DoublyLinkedList.cpp)
 
@@ -27,4 +24,4 @@ add_executable(test_doublylinkedlist __test__/test_DoublyLinkedList.cpp)
 set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 
 # Link the DoublyLinkedList library to the test executable
-target_link_libraries(test_doublylinkedlist DoublyLinkedList)
+target_link_libraries(test_doublylinkedlist)
