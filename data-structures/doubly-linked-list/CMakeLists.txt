@@ -8,6 +8,9 @@ project(DoublyLinkedListProject VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Specify the build type as Debug
+set(CMAKE_BUILD_TYPE Debug)
+
 # Include directories
 include_directories(include)
 
@@ -19,6 +22,9 @@ add_library(DoublyLinkedList src/DoublyLinkedList.cpp)
 
 # Add the test executable
 add_executable(test_doublylinkedlist __test__/test_DoublyLinkedList.cpp)
+
+# Set compiler flags for the Debug build type
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 
 # Link the DoublyLinkedList library to the test executable
 target_link_libraries(test_doublylinkedlist DoublyLinkedList)

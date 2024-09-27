@@ -1,6 +1,6 @@
 class DoublyLinkedList {
   public:
-    DoublyLinkedList() = default;
+    DoublyLinkedList() : _head(nullptr), _tail(nullptr), _size(0) {}
     ~DoublyLinkedList();
   public:
     bool is_empty() const {return _size == 0;}
@@ -29,7 +29,8 @@ class DoublyLinkedList {
     void print_reverse() const;
   private:
     struct _Node;
-    _Node* get_node(const int &index);
+    _Node* get_node(const int &index) const;
+    int search(const int &value, bool from_head) const;
   private:
     struct _Node {
       int _value;
