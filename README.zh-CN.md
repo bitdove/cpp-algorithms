@@ -18,8 +18,10 @@
 
 `B` - 初学者， `A` - 进阶
 
-* `B` [链表](data-structures/linked-list)
-* `B` [双链表](data-structures/doubly-linked-list)
+* `B` [单链表](data-structures/LinkedList)
+* `B` [双链表](data-structures/DoublyLinkedList)
+* `B` [队列](data-structures/Queue)
+
 
 ## 算法
 

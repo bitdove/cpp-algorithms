@@ -21,8 +21,9 @@ Remember that each data has its own trade-offs. And you need to pay attention mo
 
 `B` - Beginner, `A` - Advanced
 
-* `B` [Linked List](data-structures/linked-list)
-* `B` [Doubly Linked List](data-structures/doubly-linked-list)
+* `B` [Linked List](data-structures/LinkedList)
+* `B` [Doubly Linked List](data-structures/DoublyLinkedList)
+* `B` [Queue](data-structures/Queue)
 
 ## Algorithms
 

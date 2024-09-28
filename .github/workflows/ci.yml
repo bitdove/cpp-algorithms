@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         # Add your projects from 'data-structures'
-        project: [LinkedList, DoublyLinkedList]
+        project: [LinkedList, DoublyLinkedList, Queue]
 
     steps:
     # Step 1: Checkout the repository

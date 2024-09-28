@@ -14,11 +14,8 @@ include_directories(include)
 # Output executables to the 'bin' directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
-# Add the main library (LinkedList)
-add_library(Queue src/Queue.cpp)
-
 # Add the test executable
-add_executable(test_queue __test__/test_Queue.cpp)
+add_executable(test_Queue __test__/test_Queue.cpp)
 
 # Link the LinkedList library to the test executable
-target_link_libraries(test_queue Queue)
+target_link_libraries(test_Queue)
