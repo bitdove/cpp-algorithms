@@ -1,5 +1,7 @@
 # C++ 数据结构与算法
 
+[![C++ Build](https://github.com/MasonCodingHere/cpp-algorithms/actions/workflows/ci.yml/badge.svg)](https://github.com/MasonCodingHere/cpp-algorithms/actions/workflows/ci.yml)
+
 > Read this in other languages: 🇬🇧[_English_](README.md)
 
 本仓库包含了多种基于 C++ 的算法与数据结构。
@@ -15,6 +17,7 @@
 `B` - 初学者， `A` - 进阶
 
 * `B` [链表](data-structures/linked-list)
+* `B` [双链表](data-structures/doubly-linked-list)
 
 ## 算法
 

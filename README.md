@@ -1,5 +1,7 @@
 # C++ Data Structures and Algorithms
 
+[![C++ Build](https://github.com/MasonCodingHere/cpp-algorithms/actions/workflows/ci.yml/badge.svg)](https://github.com/MasonCodingHere/cpp-algorithms/actions/workflows/ci.yml)
+
 > Read this in other languages: 🇨🇳[_简体中文_](README.zh-CN.md)
 
 This repository contains C++ based examples of many popular algorithms and data structures.
