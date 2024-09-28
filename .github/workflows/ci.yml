@@ -32,4 +32,4 @@ jobs:
 
     # 4. Run tests (if you have them)
     - name: Run tests_LinkedList
-      run: ./bin/tests_LinkedList
+      run: ./data-structures/linked-list/bin/tests_LinkedList
