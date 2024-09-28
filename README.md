@@ -102,6 +102,9 @@ Below is the list of some of the most used Big O notations and their performance
 | **Counting sort**     | n + r           | n + r               | n + r               | n + r     | Yes       | r - biggest number in array |
 | **Radix sort**        | n * k           | n * k               | n * k               | n + k     | Yes       | k - length of longest key |
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MasonCodingHere/cpp-algorithms&type=Date)](https://star-history.com/#MasonCodingHere/cpp-algorithms&Date)
 
 ## References
 1. [trekhleb's javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
