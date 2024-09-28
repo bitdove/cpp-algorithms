@@ -21,6 +21,8 @@
 * `B` [单链表](data-structures/LinkedList)
 * `B` [双链表](data-structures/DoublyLinkedList)
 * `B` [队列](data-structures/Queue)
+* `B` [栈](data-structures/Stack)
+
 
 
 ## 算法

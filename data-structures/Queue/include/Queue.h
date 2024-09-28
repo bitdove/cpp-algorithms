@@ -1,16 +1,14 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-
+/*
+ * We're going to implement Queue based on LinkedList since the two
+ * structures are quite similar. Namely, they both operate mostly on
+ * the elements at the beginning and the end. Compare push/pop
+ * operations of Queue with push_back/pop_front operations of LinkedList.
+*/
 #include <stdexcept>
 #include <cstddef>
 #include "../../LinkedList/include/LinkedList.h"
-
-/*
-  We're going to implement Queue based on LinkedList since the two
-  structures are quite similar. Namely, they both operate mostly on
-  the elements at the beginning and the end. Compare push/pop
-  operations of Queue with push_back/pop_front operations of LinkedList.
-*/
 
 template <typename T>
 class Queue{
