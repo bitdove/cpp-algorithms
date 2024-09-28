@@ -1,6 +1,5 @@
-name: C++ Build
+name: C++ CI and Codecov for Multiple Projects
 
-# Trigger the workflow on pushes and pull requests to specific branches
 on:
   push:
     branches:
@@ -10,26 +9,35 @@ on:
       - main
 
 jobs:
-  build:
-    # This job will run on the latest version of Ubuntu
+  # Job 1: Build and test projects under 'data-structures'
+  data-structures-build-and-test:
     runs-on: ubuntu-latest
 
-    # Steps define the actions within the job
+    strategy:
+      matrix:
+        # Add your projects from 'data-structures'
+        project: [LinkedList, DoublyLinkedList]
+
     steps:
-    # 1. Checkout the code from the repository
+    # Step 1: Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # 2. Install dependencies (e.g., for C++, you might want to install compilers or build tools)
+    # Step 2: Install dependencies (C++ tools)
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y g++ make cmake
+      run: sudo apt-get install -y gcc g++ make cmake lcov
 
-    # 3. Build the project
-    - name: Build LinkedList
+    # Step 3: Build and test each project in 'data-structures'
+    - name: Build and test project
       run: |
-        cd data-structures/linked-list
+        # Navigate to the correct project directory
+        cd data-structures/${{ matrix.project }}
+        # Run the build script for the project
         ./build.sh
+        ./bin/test_${{ matrix.project }}
 
-    # 4. Run tests
-    - name: Run test_LinkedList
-      run: ./data-structures/linked-list/bin/test_linkedlist
+    # Step 4: Upload coverage to Codecov
+    - name: Upload coverage to Codecov
+      run: bash <(curl -s https://codecov.io/bash)
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
