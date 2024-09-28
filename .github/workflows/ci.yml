@@ -31,5 +31,5 @@ jobs:
         ./build.sh
 
     # 4. Run tests (if you have them)
-    - name: Run tests_LinkedList
-      run: ./data-structures/linked-list/bin/tests_LinkedList
+    - name: Run test_LinkedList
+      run: ./data-structures/linked-list/bin/test_LinkedList
