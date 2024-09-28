@@ -34,7 +34,7 @@ jobs:
         cd data-structures/${{ matrix.project }}
         # Run the build script for the project
         ./build.sh
-        ./bin/test_${{ matrix.project }}
+        ./bin/test_${{ matrix.project | toLower }}
 
     # Step 4: Upload coverage to Codecov
     - name: Upload coverage to Codecov
