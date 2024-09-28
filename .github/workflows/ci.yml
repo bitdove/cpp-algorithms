@@ -44,7 +44,6 @@ jobs:
         # Return to the project root directory
         cd ..
         ./bin/test_${{ matrix.project }}
-        ./clean.sh
     # Step 4: 
     - name: Generate coverage report
       run: |
