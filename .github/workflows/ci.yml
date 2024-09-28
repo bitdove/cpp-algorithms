@@ -32,8 +32,17 @@ jobs:
       run: |
         # Navigate to the correct project directory
         cd data-structures/${{ matrix.project }}
-        # Run the build script for the project
-        ./build.sh
+        # Create the build directory if it doesn't exist
+        if [ ! -d "build" ]; then
+          mkdir build
+        fi
+        # Run CMake in the build directory
+        cd build
+        cmake -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage" ..
+        # Build the project using make
+        make
+        # Return to the project root directory
+        cd ..
         ./bin/test_${{ matrix.project }}
         ./clean.sh
     # Step 4: 
