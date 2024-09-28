@@ -1,4 +1,4 @@
-name: C++ CI and Codecov for Multiple Projects
+name: CI
 
 on:
   push:
@@ -34,7 +34,10 @@ jobs:
         cd data-structures/${{ matrix.project }}
         # Run the build script for the project
         ./build.sh
-        ./bin/test_${{ matrix.project | toLower }}
+        # Convert the project name to lowercase
+        PROJECT_LOWER=$(echo "${{ matrix.project }}" | tr '[:upper:]' '[:lower:]')
+        ./bin/test_$PROJECT_LOWER
+        ./clean.sh
 
     # Step 4: Upload coverage to Codecov
     - name: Upload coverage to Codecov
