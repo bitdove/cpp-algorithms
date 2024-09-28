@@ -1,6 +1,7 @@
 # C++ Data Structures and Algorithms
 
 [![C++ Build](https://github.com/MasonCodingHere/cpp-algorithms/actions/workflows/ci.yml/badge.svg)](https://github.com/MasonCodingHere/cpp-algorithms/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/MasonCodingHere/cpp-algorithms/graph/badge.svg?token=KTYRD8PPAR)](https://codecov.io/gh/MasonCodingHere/cpp-algorithms)
 ![Repo Size](https://img.shields.io/github/repo-size/MasonCodingHere/cpp-algorithms.svg)
 
 > Read this in other languages: 🇨🇳[_简体中文_](README.zh-CN.md)
