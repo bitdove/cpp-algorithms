@@ -44,7 +44,7 @@ jobs:
         # Return to the project root directory
         cd ..
         ./bin/test_${{ matrix.project }}
-    # Step 4: 
+    # Step 4: Generate coverage report
     - name: Generate coverage report
       run: |
         lcov --directory . --capture --output-file coverage.info
