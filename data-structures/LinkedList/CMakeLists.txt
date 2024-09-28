@@ -15,7 +15,7 @@ include_directories(include)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
 # Add the test executable
-add_executable(test_linkedlist __test__/test_LinkedList.cpp)
+add_executable(test_LinkedList __test__/test_LinkedList.cpp)
 
 # Link the LinkedList library to the test executable
-target_link_libraries(test_linkedlist)
+target_link_libraries(test_LinkedList)

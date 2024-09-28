@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_LinkedList.dir/__test__/test_LinkedList.cpp.o -o /home/mason/cpp-algorithms/data-structures/linked-list/bin/test_LinkedList
