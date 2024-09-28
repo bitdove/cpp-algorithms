@@ -34,9 +34,7 @@ jobs:
         cd data-structures/${{ matrix.project }}
         # Run the build script for the project
         ./build.sh
-        # Convert the project name to lowercase
-        PROJECT_LOWER=$(echo "${{ matrix.project }}" | tr '[:upper:]' '[:lower:]')
-        ./bin/test_$PROJECT_LOWER
+        ./bin/test_${{ matrix.project }}
         ./clean.sh
 
     # Step 4: Upload coverage to Codecov
