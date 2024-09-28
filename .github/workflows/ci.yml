@@ -1,0 +1,35 @@
+name: C++ Build
+
+# Trigger the workflow on pushes and pull requests to specific branches
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    # This job will run on the latest version of Ubuntu
+    runs-on: ubuntu-latest
+
+    # Steps define the actions within the job
+    steps:
+    # 1. Checkout the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # 2. Install dependencies (e.g., for C++, you might want to install compilers or build tools)
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y g++ make cmake
+
+    # 3. Build the project
+    - name: Build LinkedList
+      run: |
+        cd data-structures/linked-list
+        ./build.sh
+
+    # 4. Run tests (if you have them)
+    - name: Run tests_LinkedList
+      run: ./bin/tests_LinkedList
