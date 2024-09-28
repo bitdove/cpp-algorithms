@@ -30,6 +30,6 @@ jobs:
         cd data-structures/linked-list
         ./build.sh
 
-    # 4. Run tests (if you have them)
+    # 4. Run tests
     - name: Run test_LinkedList
-      run: ./data-structures/linked-list/bin/test_LinkedList
+      run: ./data-structures/linked-list/bin/test_linkedlist
