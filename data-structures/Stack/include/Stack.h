@@ -13,18 +13,51 @@ template <typename T>
 class Stack{
   public:
     // Capacity
-    bool empty();
-    size_t size();
+    bool empty() const;
+    size_t size() const;
     // Add
-    void push(T& value);
+    void push(const T& value);
     // Delete
     void pop();
     // Check
-    void top();
+    T& top();
   private:
     LinkedList<T> list;
 };
 
+// Capacity
+template <typename T>
+bool Stack<T>::empty() const{
+  return list.empty();
+}
 
+template <typename T>
+size_t Stack<T>::size() const{
+  return list.size();
+}
+
+// Add
+template <typename T>
+void Stack<T>::push(const T& value){
+  list.push_front(value);
+}
+
+// Delete
+template <typename T>
+void Stack<T>::pop(){
+  if(empty()){
+    throw std::underflow_error("This Stack is empty");
+  }
+  list.pop_front();
+}
+
+// Check
+template <typename T>
+T& Stack<T>::top(){
+  if(list.empty()){
+    throw std::underflow_error("This Stack is empty");
+  }
+  return list.front();
+}
 
 #endif // STACK_H
