@@ -18,6 +18,7 @@
 
 `B` - 初学者， `A` - 进阶
 
+* `B` [数组](data-structures/Array)
 * `B` [单链表](data-structures/LinkedList)
 * `B` [双链表](data-structures/DoublyLinkedList)
 * `B` [队列](data-structures/Queue)

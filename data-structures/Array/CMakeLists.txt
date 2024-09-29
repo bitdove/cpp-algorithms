@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Project name and version
-project(StackProject VERSION 1.0)
+project(ArrayProject VERSION 1.0)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 11)
@@ -15,7 +15,7 @@ include_directories(include)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
 # Add the test executable
-add_executable(test_Stack __test__/test_Stack.cpp)
+add_executable(test_Array __test__/test_Array.cpp)
 
-# Link the Stack library to the test executable
-target_link_libraries(test_Stack)
+# Link the Array library to the test executable
+target_link_libraries(test_Array)

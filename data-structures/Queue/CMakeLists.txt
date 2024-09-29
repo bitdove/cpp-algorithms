@@ -17,5 +17,5 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 # Add the test executable
 add_executable(test_Queue __test__/test_Queue.cpp)
 
-# Link the LinkedList library to the test executable
+# Link the Queue library to the test executable
 target_link_libraries(test_Queue)
