@@ -170,6 +170,34 @@ int main(int argc, char* argv[]) {
     std::cout << "contains() throw an exception PASSED: )" << e.what() << std::endl;
   }
   list.print();
+  list.push_at(0, 13); // 13
+  assert(list.empty() == false);
+  assert(list.size() == 1);
+  assert(list.get_at(0) == 13);
+  assert(list.front() == 13);
+  assert(list.back() == 13);
+  list.push_at(1, 21); // 13 21
+  assert(list.empty() == false);
+  assert(list.size() == 2);
+  assert(list.get_at(1) == 21);
+  assert(list.front() == 13);
+  assert(list.back() == 21);
+  list.push_at(1, 39); // 13 39 21
+  assert(list.empty() == false);
+  assert(list.size() == 3);
+  assert(list.get_at(1) == 39);
+  assert(list.front() == 13);
+  assert(list.back() == 21);
+  list.pop_at(2); // 13 39
+  assert(list.empty() == false);
+  assert(list.size() == 2);
+  assert(list.get_at(1) == 39);
+  assert(list.front() == 13);
+  assert(list.back() == 39);
+  list.pop_front();
+  list.pop_back();
+  assert(list.empty() == true);
+  assert(list.size() == 0);
   std::cout << "ALL TEST PASSED!" << std::endl;
   return 0;
 }
