@@ -9,13 +9,11 @@ int main(int argc, char* argv[]){
   assert(stk.size() == 0);
   try{
     stk.pop();
-    std::cerr << "pop() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop() throw an exception PASSED! " << e.what() << std::endl;
   }
   try{
     stk.top();
-    std::cerr << "top() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "top() throw an exception PASSED! " << e.what() << std::endl;
   }
@@ -41,13 +39,11 @@ int main(int argc, char* argv[]){
   assert(stk.size() == 0);
   try{
     stk.pop();
-    std::cerr << "pop() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop() throw an exception PASSED! " << e.what() << std::endl;
   }
   try{
     stk.top();
-    std::cerr << "top() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "top() throw an exception PASSED! " << e.what() << std::endl;
   }

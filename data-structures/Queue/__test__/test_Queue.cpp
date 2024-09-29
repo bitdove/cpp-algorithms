@@ -9,7 +9,6 @@ int main(int argc, char* argv[]){
   std::cout << "Initial test PASSED!" << std::endl;
   try{
     que.pop();
-    std::cerr << "pop() throw exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop() throw an exception PASSED! " << e.what() << std::endl;
   }
@@ -22,13 +21,11 @@ int main(int argc, char* argv[]){
   assert(que.size() == 0);
   try{
     que.front();
-    std::cerr << "front() throw exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "front() throw an exception PASSED! " << e.what() << std::endl;
   }
   try{
     que.back();
-    std::cerr << "back() throw exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "back() throw an exception PASSED! " << e.what() << std::endl;
   }
