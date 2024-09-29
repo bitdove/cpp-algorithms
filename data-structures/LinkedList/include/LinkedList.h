@@ -191,15 +191,13 @@ void LinkedList<T>::change_eq_first(const T &value, const T &new_value){
   }
   if(curr){
     curr->_value = new_value;
-  } else{
-    throw std::runtime_error("Value not found in the list");
   }
 }
 
 template <typename T>
 void LinkedList<T>::change_eq_all(const T &value, const T &new_value){
   if(empty()){
-    throw std::out_of_range("This LinkedList is empty");
+    throw std::underflow_error("This LinkedList is empty");
   }
   _Node *curr = _head; 
   while(curr){

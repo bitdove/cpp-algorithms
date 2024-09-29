@@ -2,93 +2,190 @@
 #include <cassert>
 #include "../include/LinkedList.h"
 
-void test_empty(){
-  LinkedList<int> list;
-  assert(list.empty() == true);
-  list.push_back(11);
-  assert(list.empty() == false);
-  list.pop_back();
-  assert(list.empty() == true);
-  std::cout << "empty passed!" << std::endl;
-}
-
-void test_size(){
-  LinkedList<int> list;
-  assert(list.size() == 0);
-  list.push_back(2);
-  assert(list.size() == 1);
-  list.pop_back();
-  assert(list.size() == 0);
-  std::cout << "size passed!" << std::endl;
-}
-
-//Test add functions
-void test(){
-  LinkedList<int> list;
-  list.push_front(5);
-  list.push_front(4);
-  list.push_front(3); // 3 4 5
-  assert(list.size() == 3);
-  assert(list.front() == 3);
-  list.pop_front(); // 4 5
-  assert(list.size() == 2);
-  assert(list.front() == 4);
-  std::cout << "push_front passed!" << std::endl;
-  std::cout << "pop_front passed!" << std::endl;
-  list.push_back(2); // 4 5 2
-  assert(list.size() == 3);
-  assert(list.empty() == false);
-  assert(list.front() == 4);
-  assert(list.back() == 2);
-  std::cout << "push_back passed!" << std::endl;
-  list.push_at(1, 1); // 4 1 5 2
-  assert(list.size() == 4);
-  assert(list.contains(1) == 1);
-  std::cout << "push_at passed!" << std::endl;
-  list.pop_back(); // 4 1 5
-  assert(list.size() == 3);
-  assert(list.back() == 5);
-  std::cout << "pop_back passed!" << std::endl;
-  list.push_front(3);
-  list.push_back(6);
-  list.push_back(2); // 3 4 1 5 6 2
-  list.push_at(3, 9); // 3 4 1 9 5 6 2
-  assert(list.size() == 7);
-  assert(list.get_at(3) == 9);
-  list.pop_at(1); // 3 1 9 5 6 2
-  assert(list.size() == 6);
-  assert(list.get_at(1) == 1);
-  std::cout << "pop_at passed!" << std::endl;
-  list.change_at(3, 4); // 3 1 9 4 6 2
-  assert(list.size() == 6);
-  assert(list.get_at(3) == 4);
-  std::cout << "change_at passed!" << std::endl;
-  list.push_back(1); // 3 1 9 4 6 2 1
-  list.change_at(4, 5); // 3 1 9 4 5 2 1
-  list.change_eq_all(1, 6); // 3 6 9 4 5 2 6
-  list.change_eq_first(6, 7); // 3 7 9 4 5 2 6
-  assert(list.size() == 7);
-  assert(list.get_at(4) == 5);
-  assert(list.contains(1) == -1);
-  std::cout << "change passed!" << std::endl;
-  list.reverse(); // 6 2 5 4 9 7 3
-  assert(list.size() == 7);
-  assert(list.front() == 6);
-  assert(list.get_at(1) == 2);
-  assert(list.get_at(2) == 5);
-  assert(list.get_at(3) == 4);
-  assert(list.get_at(4) == 9);
-  assert(list.get_at(5) == 7);
-  assert(list.get_at(6) == 3);
-  assert(list.back() == 3);
-  list.print();
-  std::cout << "reverse passed!" << std::endl;
-  std::cout << "All test passed!" << std::endl;
-}
-
 int main(int argc, char* argv[]) {
-  test_empty();
-  test_size();
-  test();
+  LinkedList<int> list;
+  assert(list.empty() == true);
+  assert(list.size() == 0);
+  try{
+    list.pop_front();
+    std::cerr << "pop_front() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "pop_front() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    list.pop_back();
+    std::cerr << "pop_back() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "pop_back() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  list.push_front(32); // 32
+  assert(list.empty() == false);
+  assert(list.size() == 1);
+  assert(list.front() == 32);
+  assert(list.back() == 32);
+  assert(list.contains(32) == 0);
+  assert(list.get_at(0) == 32);
+  list.push_back(22); // 32 22
+  assert(list.empty() == false);
+  assert(list.size() == 2);
+  assert(list.front() == 32);
+  assert(list.back() == 22);
+  assert(list.contains(22) == 1);
+  assert(list.get_at(0) == 32);
+  list.push_front(11); // 11 32 22
+  assert(list.empty() == false);
+  assert(list.size() == 3);
+  assert(list.front() == 11);
+  assert(list.back() == 22);
+  assert(list.contains(32) == 1);
+  assert(list.get_at(2) == 22);
+  try{
+    list.push_at(4, 99);
+    std::cerr << "push_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "push_at() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    list.pop_at(3);
+    std::cerr << "pop_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "pop_at() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    list.change_at(3, 99);
+    std::cerr << "change_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "change_at() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    list.get_at(3);
+    std::cerr << "get_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "get_at() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  list.push_front(31); // 31 11 32 22
+  assert(list.empty() == false);
+  assert(list.size() == 4);
+  assert(list.front() == 31);
+  assert(list.back() == 22);
+  assert(list.contains(22) == 3);
+  assert(list.get_at(2) == 32);
+  list.push_back(29); // 31 11 32 22 29
+  assert(list.empty() == false);
+  assert(list.size() == 5);
+  assert(list.front() == 31);
+  assert(list.back() == 29);
+  assert(list.contains(11) == 1);
+  assert(list.get_at(3) == 22);
+  list.push_back(11); // 31 11 32 22 29 11
+  assert(list.empty() == false);
+  assert(list.size() == 6);
+  assert(list.front() == 31);
+  assert(list.back() == 11);
+  assert(list.contains(11) == 1);
+  assert(list.get_at(4) == 29);
+  list.change_eq_first(32, 75); // 31 11 75 22 29 11
+  assert(list.contains(75) == 2);
+  assert(list.get_at(2) == 75);
+  assert(list.contains(32) == std::numeric_limits<size_t>::max());
+  list.change_eq_all(11, 57); // 31 57 75 22 29 57
+  assert(list.contains(57) == 1);
+  assert(list.get_at(5) == 57);
+  assert(list.contains(11) == std::numeric_limits<size_t>::max());
+  list.change_at(2, 39); // 31 57 39 22 29 57
+  assert(list.contains(39) == 2);
+  assert(list.get_at(2) == 39);
+  assert(list.contains(75) == std::numeric_limits<size_t>::max());
+  list.print();
+  list.reverse(); // 57 29 22 39 57 31
+  assert(list.empty() == false);
+  assert(list.size() == 6);
+  assert(list.get_at(1) == 29);
+  assert(list.front() == 57);
+  assert(list.back() == 31);
+  list.print();
+  list.pop_front(); // 29 22 39 57 31
+  assert(list.empty() == false);
+  assert(list.size() == 5);
+  assert(list.get_at(1) == 22);
+  assert(list.front() == 29);
+  assert(list.back() == 31);
+  list.pop_back(); // 29 22 39 57
+  assert(list.empty() == false);
+  assert(list.size() == 4);
+  assert(list.get_at(2) == 39);
+  assert(list.front() == 29);
+  assert(list.back() == 57);
+  list.pop_at(2); // 29 22 57
+  assert(list.empty() == false);
+  assert(list.size() == 3);
+  assert(list.get_at(1) == 22);
+  assert(list.front() == 29);
+  assert(list.back() == 57);
+  list.pop_front();
+  list.pop_back();
+  list.pop_at(0); // null
+  try{
+    list.push_at(1, 99);
+    std::cerr << "push_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "push_at() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.pop_at(1);
+    std::cerr << "pop_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "pop_at() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.change_at(1, 99);
+    std::cerr << "change_at() throw an exception FAILED!" << std::endl;
+  } catch(const std::out_of_range &e){
+    std::cout << "change_at() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.pop_front();
+    std::cerr << "pop_front() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "pop_front() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.pop_back();
+    std::cerr << "pop_back() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "pop_back() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.change_eq_first(1, 99);
+    std::cerr << "change_eq_first() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "change_eq_first() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.change_eq_all(1, 99);
+    std::cerr << "change_eq_all() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "change_eq_all() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.front();
+    std::cerr << "front() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "front() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.back();
+    std::cerr << "back() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "back() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  try{
+    list.contains(99);
+    std::cerr << "contains() throw an exception FAILED!" << std::endl;
+  } catch(const std::underflow_error &e){
+    std::cout << "contains() throw an exception PASSED: )" << e.what() << std::endl;
+  }
+  list.print();
+  std::cout << "ALL TEST PASSED!" << std::endl;
   return 0;
 }
