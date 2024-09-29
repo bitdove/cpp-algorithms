@@ -1,8 +1,10 @@
-#include "../include/Array.h"
 #include <cassert>
 #include <iostream>
+#include "../include/Array.h"
+#include "../include/Vector.h"
 
-void test_array() {
+void test_array(){
+  std::cout << "*****Array Test Begin*****" << std::endl;
   Array<int, 0> arr_0;
   assert(arr_0.size() == 0);
   assert(arr_0.empty() == true);
@@ -41,9 +43,20 @@ void test_array() {
   }
   std::cout << std::endl;
   std::cout << "All tests passed!" << std::endl;
+  std::cout << "*****Array Test End*****" << std::endl;
+}
+
+void test_vector(){
+  std::cout << "*****Vector Test Begin*****" << std::endl;
+
+
+
+  std::cout << "*****Vector Test End*****" << std::endl;
 }
 
 int main() {
   test_array();
+  std::cout << std::endl;
+  test_vector();
   return 0;
 }
