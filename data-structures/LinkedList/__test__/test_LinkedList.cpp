@@ -8,13 +8,11 @@ int main(int argc, char* argv[]) {
   assert(list.size() == 0);
   try{
     list.pop_front();
-    std::cerr << "pop_front() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop_front() throw an exception PASSED: " << e.what() << std::endl;
   }
   try{
     list.pop_back();
-    std::cerr << "pop_back() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop_back() throw an exception PASSED: " << e.what() << std::endl;
   }
@@ -41,25 +39,21 @@ int main(int argc, char* argv[]) {
   assert(list.get_at(2) == 22);
   try{
     list.push_at(4, 99);
-    std::cerr << "push_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "push_at() throw an exception PASSED: " << e.what() << std::endl;
   }
   try{
     list.pop_at(3);
-    std::cerr << "pop_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "pop_at() throw an exception PASSED: " << e.what() << std::endl;
   }
   try{
     list.change_at(3, 99);
-    std::cerr << "change_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "change_at() throw an exception PASSED: " << e.what() << std::endl;
   }
   try{
     list.get_at(3);
-    std::cerr << "get_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "get_at() throw an exception PASSED: " << e.what() << std::endl;
   }
@@ -127,61 +121,51 @@ int main(int argc, char* argv[]) {
   list.pop_at(0); // null
   try{
     list.push_at(1, 99);
-    std::cerr << "push_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "push_at() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.pop_at(1);
-    std::cerr << "pop_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "pop_at() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.change_at(1, 99);
-    std::cerr << "change_at() throw an exception FAILED!" << std::endl;
   } catch(const std::out_of_range &e){
     std::cout << "change_at() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.pop_front();
-    std::cerr << "pop_front() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop_front() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.pop_back();
-    std::cerr << "pop_back() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "pop_back() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.change_eq_first(1, 99);
-    std::cerr << "change_eq_first() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "change_eq_first() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.change_eq_all(1, 99);
-    std::cerr << "change_eq_all() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "change_eq_all() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.front();
-    std::cerr << "front() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "front() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.back();
-    std::cerr << "back() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "back() throw an exception PASSED: )" << e.what() << std::endl;
   }
   try{
     list.contains(99);
-    std::cerr << "contains() throw an exception FAILED!" << std::endl;
   } catch(const std::underflow_error &e){
     std::cout << "contains() throw an exception PASSED: )" << e.what() << std::endl;
   }
