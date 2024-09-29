@@ -188,13 +188,20 @@ int main(int argc, char* argv[]) {
   assert(list.get_at(1) == 39);
   assert(list.front() == 13);
   assert(list.back() == 21);
-  list.pop_at(2); // 13 39
+  list.push_at(2, 47); // 13 39 47 21
   assert(list.empty() == false);
-  assert(list.size() == 2);
+  assert(list.size() == 4);
   assert(list.get_at(1) == 39);
   assert(list.front() == 13);
-  assert(list.back() == 39);
+  assert(list.back() == 21);
+  list.pop_at(2); // 13 39 21
+  assert(list.empty() == false);
+  assert(list.size() == 3);
+  assert(list.get_at(1) == 39);
+  assert(list.front() == 13);
+  assert(list.back() == 21);
   list.pop_front();
+  list.pop_back();
   list.pop_back();
   assert(list.empty() == true);
   assert(list.size() == 0);

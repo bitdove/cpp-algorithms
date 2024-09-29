@@ -100,10 +100,8 @@ void LinkedList<T>::push_at(const size_t index, const T &value){
     return;
   }
   _Node *prev = _head;
-  size_t prev_index = 0;
-  while(prev_index < index - 1){
+  for(size_t i = 0; i < index - 1; ++i){
     prev = prev->_next;
-    ++prev_index;
   }
   _Node *new_node = new _Node(value);
   new_node->_next = prev->_next;
