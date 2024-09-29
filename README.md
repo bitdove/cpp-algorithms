@@ -22,8 +22,11 @@ Remember that each data has its own trade-offs. And you need to pay attention mo
 `B` - Beginner, `A` - Advanced
 
 * `B` [Array](data-structures/Array)
+  * `B` [Array](data-structures/Array)
+  * `B` [Vector](data-structures/Array)
 * `B` [Linked List](data-structures/LinkedList)
-* `B` [Doubly Linked List](data-structures/DoublyLinkedList)
+  * `B` [Singly Linked List](data-structures/LinkedList)
+  * `B` [Doubly Linked List](data-structures/DoublyLinkedList)
 * `B` [Queue](data-structures/Queue)
 * `B` [Stack](data-structures/Stack)
 

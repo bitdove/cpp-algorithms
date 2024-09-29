@@ -1,11 +1,11 @@
 #ifndef STACK_H
 #define STACK_H
 /*
- * We're going to implement Stack based on LinkedList since these
+ * We're going to implement Stack based on SinglyLinkedList since these
  * tructures are quite similar. Compare push/pop operations of the Stack
- * with push_front/pop_front operations of LinkedList.
+ * with push_front/pop_front operations of SinglyLinkedList.
 */ 
-#include "../../LinkedList/include/LinkedList.h"
+#include "../../LinkedList/include/SinglyLinkedList.h"
 #include <cstddef>
 #include <stdexcept>
 
@@ -22,7 +22,7 @@ class Stack{
     // Check
     T& top();
   private:
-    LinkedList<T> list;
+    SinglyLinkedList<T> list;
 };
 
 // Capacity

@@ -1,5 +1,5 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef SINGLYLINKEDLIST_H
+#define SINGLYLINKEDLIST_H
 
 #include <stdexcept>
 #include <cstddef> // For size_t
@@ -17,10 +17,10 @@ in the same header file.
 
 /* Declaration Begin */
 template <typename T>
-class LinkedList {
+class SinglyLinkedList {
   public:
-    LinkedList() : _head(nullptr), _size(0) {}
-    ~LinkedList();
+    SinglyLinkedList() : _head(nullptr), _size(0) {}
+    ~SinglyLinkedList();
   public:
     // Capacity
     bool empty() const {return _size == 0;}
@@ -64,7 +64,7 @@ class LinkedList {
 /* Implementation Begin */
 // Add
 template <typename T>
-void LinkedList<T>::push_front(const T &value){
+void SinglyLinkedList<T>::push_front(const T &value){
   if(empty()){
     _head = new _Node(value);
   } else{
@@ -76,7 +76,7 @@ void LinkedList<T>::push_front(const T &value){
 }
 
 template <typename T>
-void LinkedList<T>::push_back(const T &value){
+void SinglyLinkedList<T>::push_back(const T &value){
   if(empty()){
     _head = new _Node(value);
   } else{
@@ -87,7 +87,7 @@ void LinkedList<T>::push_back(const T &value){
 }
 
 template <typename T>
-void LinkedList<T>::push_at(const size_t index, const T &value){
+void SinglyLinkedList<T>::push_at(const size_t index, const T &value){
   if(index > _size){
     throw std::out_of_range("Index out of range");
   }
@@ -111,9 +111,9 @@ void LinkedList<T>::push_at(const size_t index, const T &value){
 
 // Delete
 template <typename T>
-void LinkedList<T>::pop_front(){
+void SinglyLinkedList<T>::pop_front(){
   if(empty()){
-    throw std::underflow_error("This LinkedList is empty");
+    throw std::underflow_error("This SinglyLinkedList is empty");
   }
   _Node* del = _head;
   _head = del->_next;
@@ -123,9 +123,9 @@ void LinkedList<T>::pop_front(){
 }
 
 template <typename T>
-void LinkedList<T>::pop_back(){
+void SinglyLinkedList<T>::pop_back(){
   if(empty()){
-    throw std::underflow_error("This LinkedList is empty");
+    throw std::underflow_error("This SinglyLinkedList is empty");
   }
   if(_size == 1){
     delete _head;
@@ -143,7 +143,7 @@ void LinkedList<T>::pop_back(){
 }
 
 template <typename T>
-void LinkedList<T>::pop_at(const size_t index){
+void SinglyLinkedList<T>::pop_at(const size_t index){
   if(index >= _size){
     throw std::out_of_range("Index out of range");
   }
@@ -167,7 +167,7 @@ void LinkedList<T>::pop_at(const size_t index){
 
 // Modify
 template <typename T>
-void LinkedList<T>::change_at(const size_t index, const T &value){
+void SinglyLinkedList<T>::change_at(const size_t index, const T &value){
   if(index >= _size){
     throw std::out_of_range("Index out of range");
   }
@@ -179,9 +179,9 @@ void LinkedList<T>::change_at(const size_t index, const T &value){
 }
 
 template <typename T>
-void LinkedList<T>::change_eq_first(const T &value, const T &new_value){
+void SinglyLinkedList<T>::change_eq_first(const T &value, const T &new_value){
   if(empty()){
-    throw std::underflow_error("This LinkedList is empty");
+    throw std::underflow_error("This SinglyLinkedList is empty");
   }
   _Node *curr = _head;
   while(curr && curr->_value != value){
@@ -193,9 +193,9 @@ void LinkedList<T>::change_eq_first(const T &value, const T &new_value){
 }
 
 template <typename T>
-void LinkedList<T>::change_eq_all(const T &value, const T &new_value){
+void SinglyLinkedList<T>::change_eq_all(const T &value, const T &new_value){
   if(empty()){
-    throw std::underflow_error("This LinkedList is empty");
+    throw std::underflow_error("This SinglyLinkedList is empty");
   }
   _Node *curr = _head; 
   while(curr){
@@ -207,7 +207,7 @@ void LinkedList<T>::change_eq_all(const T &value, const T &new_value){
 }
 
 template <typename T>
-void LinkedList<T>::reverse(){
+void SinglyLinkedList<T>::reverse(){
   if(empty() || _size == 1) {return;}
   _Node *prev = nullptr;
   _Node *curr = _head;
@@ -223,7 +223,7 @@ void LinkedList<T>::reverse(){
 
 // Check
 template <typename T>
-T& LinkedList<T>::front(){
+T& SinglyLinkedList<T>::front(){
   if(empty()){
     throw std::underflow_error("This Linked List is empty");
   }
@@ -231,7 +231,7 @@ T& LinkedList<T>::front(){
 }
 
 template <typename T>
-T& LinkedList<T>::back(){
+T& SinglyLinkedList<T>::back(){
   if(empty()){
     throw std::underflow_error("This LinkeList is empty");
   }
@@ -240,7 +240,7 @@ T& LinkedList<T>::back(){
 }
 
 template <typename T>
-T& LinkedList<T>::get_at(const size_t index){
+T& SinglyLinkedList<T>::get_at(const size_t index){
   if(index >= _size){
     throw std::out_of_range("Index out of range");
   }
@@ -254,9 +254,9 @@ T& LinkedList<T>::get_at(const size_t index){
 }
 
 template <typename T>
-size_t LinkedList<T>::contains(const T &value){
+size_t SinglyLinkedList<T>::contains(const T &value){
   if(empty()){
-    throw std::underflow_error("This LinkedList is empty");
+    throw std::underflow_error("This SinglyLinkedList is empty");
   }
   else{
     size_t index = 0;
@@ -273,9 +273,9 @@ size_t LinkedList<T>::contains(const T &value){
 }
 
 template <typename T>
-void LinkedList<T>::print() const{
+void SinglyLinkedList<T>::print() const{
   if(empty()){
-    std::cout << "This LinkedList is empty!" << std::endl;
+    std::cout << "This SinglyLinkedList is empty!" << std::endl;
     return;
   }
   _Node *current = _head;
@@ -288,7 +288,7 @@ void LinkedList<T>::print() const{
 
 // Private functions
 template <typename T>
-typename LinkedList<T>::_Node* LinkedList<T>::get_tail() const{
+typename SinglyLinkedList<T>::_Node* SinglyLinkedList<T>::get_tail() const{
   _Node *current = _head;
   while(current && current->_next){
     current = current->_next;
@@ -298,7 +298,7 @@ typename LinkedList<T>::_Node* LinkedList<T>::get_tail() const{
 
 // Destructor
 template <typename T>
-LinkedList<T>::~LinkedList(){
+SinglyLinkedList<T>::~SinglyLinkedList(){
   _Node *current = _head;
   while(current){
     _Node *next = current->_next;
@@ -311,4 +311,4 @@ LinkedList<T>::~LinkedList(){
 
 /* Implementation End */
 
-#endif // LINKEDLIST_H
+#endif // SINGLYLINKEDLIST_H

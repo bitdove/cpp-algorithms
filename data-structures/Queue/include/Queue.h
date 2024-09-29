@@ -1,14 +1,14 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 /*
- * We're going to implement Queue based on LinkedList since the two
+ * We're going to implement Queue based on SinglyLinkedList since the two
  * structures are quite similar. Namely, they both operate mostly on
  * the elements at the beginning and the end. Compare push/pop
- * operations of Queue with push_back/pop_front operations of LinkedList.
+ * operations of Queue with push_back/pop_front operations of SinglyLinkedList.
 */
 #include <stdexcept>
 #include <cstddef>
-#include "../../LinkedList/include/LinkedList.h"
+#include "../../LinkedList/include/SinglyLinkedList.h"
 
 template <typename T>
 class Queue{
@@ -24,7 +24,7 @@ class Queue{
     T& front();
     T& back();
   private:
-    LinkedList<T> list;
+    SinglyLinkedList<T> list;
 };
 
 //Capacity
