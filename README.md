@@ -22,11 +22,11 @@ Remember that each data has its own trade-offs. And you need to pay attention mo
 `B` - Beginner, `A` - Advanced
 
 * `B` [Array](data-structures/Array)
-  * `B` [Array](data-structures/Array)
-  * `B` [Vector](data-structures/Array)
+  * `B` [Static Array](data-structures/Array/include/Array.h)
+  * `B` [Dynamic Array](data-structures/Array/include/Vector.h)
 * `B` [Linked List](data-structures/LinkedList)
-  * `B` [Singly Linked List](data-structures/LinkedList)
-  * `B` [Doubly Linked List](data-structures/DoublyLinkedList)
+  * `B` [Singly Linked List](data-structures/LinkedList/include/SinglyLinkedList.h)
+  * `B` [Doubly Linked List](data-structures/LinkedList/include/DoublyLinkedList.h)
 * `B` [Queue](data-structures/Queue)
 * `B` [Stack](data-structures/Stack)
 
