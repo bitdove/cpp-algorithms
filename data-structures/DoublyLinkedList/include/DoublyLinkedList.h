@@ -89,7 +89,7 @@ void DoublyLinkedList<T>::push_back(const T &value){
 template <typename T>
 void DoublyLinkedList<T>::push_at(const size_t index, const T &value){
   if(index > _size){
-    throw std::out_of_range("Index out of range");
+    throw std::out_of_range("push_at(): Index out of range");
   }
   if(index == 0){
     push_front(value);
@@ -112,7 +112,7 @@ void DoublyLinkedList<T>::push_at(const size_t index, const T &value){
 template <typename T>
 void DoublyLinkedList<T>::pop_front(){
   if(empty()){
-    throw std::underflow_error("This DoublyLinkedList is empty");
+    throw std::underflow_error("pop_front(): This DoublyLinkedList is empty");
   }
   _Node *del = _head;
   if(_size == 1){
@@ -129,7 +129,7 @@ void DoublyLinkedList<T>::pop_front(){
 template <typename T>
 void DoublyLinkedList<T>::pop_back(){
   if(empty()){
-    throw std::underflow_error("This DoublyLinkedList is empty");
+    throw std::underflow_error("pop_back(): This DoublyLinkedList is empty");
   }
   _Node *del = _tail;
   if(_size == 1){
@@ -146,7 +146,7 @@ void DoublyLinkedList<T>::pop_back(){
 template <typename T>
 void DoublyLinkedList<T>::pop_at(const size_t index){
   if(index >= _size){
-    throw std::out_of_range("Index out of range");
+    throw std::out_of_range("pop_at(): Index out of range");
   }
   if(index == 0){
     pop_front();
@@ -167,7 +167,7 @@ void DoublyLinkedList<T>::pop_at(const size_t index){
 template <typename T>
 void DoublyLinkedList<T>::change_at(const size_t index, const T &new_value){
   if(index >= _size){
-    throw std::out_of_range("Index out of range");
+    throw std::out_of_range("change_at(): Index out of range");
   }
   _Node *pos = get_node(index);
   pos->_value = new_value;
@@ -176,38 +176,31 @@ void DoublyLinkedList<T>::change_at(const size_t index, const T &new_value){
 template <typename T>
 void DoublyLinkedList<T>::change_eq_first(const T &value, const T &new_value){
   if(empty()){
-    throw std::underflow_error("This DoublyLinkedList is empty");
+    throw std::underflow_error("change_eq_first(): This DoublyLinkedList is empty");
   }
   size_t index = search(value, true);
-  if(index == std::numeric_limits<size_t>::max()){
-    throw std::underflow_error("Value not found in the list");
-  } 
-  else{
+  if(index != std::numeric_limits<size_t>::max()){
     _Node *pos = get_node(index);
     pos->_value = new_value;
-  }
-  return;
+  } 
 }
 
 template <typename T>
 void DoublyLinkedList<T>::change_eq_last(const T &value, const T &new_value){
   if(empty()){
-    throw std::underflow_error("This DoublyLinkedList is empty");
+    throw std::underflow_error("change_eq_last(): This DoublyLinkedList is empty");
   }
   size_t index = search(value, false);
-  if(index == std::numeric_limits<size_t>::max()){
-    throw std::underflow_error("Value not found in the list");
-  } else{
+  if(index != std::numeric_limits<size_t>::max()){
     _Node *pos = get_node(index);
     pos->_value = new_value;
   }
-  return;
 }
 
 template <typename T>
 void DoublyLinkedList<T>::change_eq_all(const T &value, const T &new_value){
   if(empty()){
-    throw std::underflow_error("This DoublyLinkedList is empty");
+    throw std::underflow_error("change_eq_all(): This DoublyLinkedList is empty");
   }
   _Node *curr = _head;
   while(curr){
@@ -240,19 +233,19 @@ void DoublyLinkedList<T>::reverse(){
 template <typename T>
 T& DoublyLinkedList<T>::front(){
   if(_head) {return _head->_value;}
-  throw std::underflow_error("This DoublyLinkedList is empty");
+  throw std::underflow_error("front(): This DoublyLinkedList is empty");
 }
 
 template <typename T>
 T& DoublyLinkedList<T>::back(){
   if(_tail) {return _tail->_value;}
-  throw std::underflow_error("This DoublyLinkedList is empty");
+  throw std::underflow_error("back(): This DoublyLinkedList is empty");
 }
 
 template <typename T>
 T& DoublyLinkedList<T>::get_at(const size_t index){
   if(index >= _size){
-    throw std::out_of_range("Index out of range");
+    throw std::out_of_range("get_at(): Index out of range");
   }
   _Node *pos = get_node(index);
   return pos->_value;
@@ -261,7 +254,7 @@ T& DoublyLinkedList<T>::get_at(const size_t index){
 template <typename T>
 size_t DoublyLinkedList<T>::contains(const T &value) const{
   if(empty()){
-    throw std::underflow_error("This DoubltLinkedList is empty");
+    throw std::underflow_error("contains(): This DoubltLinkedList is empty");
   }
   return search(value, true);
 }
@@ -269,7 +262,7 @@ size_t DoublyLinkedList<T>::contains(const T &value) const{
 template <typename T>
 void DoublyLinkedList<T>::print() const{
   if(empty()){
-    std::cout << "This DoublyLinkedList is empty" << std::endl;
+    std::cout << "print(): This DoublyLinkedList is empty" << std::endl;
     return;
   }
   _Node *curr = _head;
@@ -282,7 +275,7 @@ void DoublyLinkedList<T>::print() const{
 template <typename T>
 void DoublyLinkedList<T>::print_reverse() const{
   if(empty()){
-    std::cout << "This DoublyLinkedList is empty" << std::endl;
+    std::cout << "print_reverse(): This DoublyLinkedList is empty" << std::endl;
     return;
   }
   _Node *curr = _tail;
