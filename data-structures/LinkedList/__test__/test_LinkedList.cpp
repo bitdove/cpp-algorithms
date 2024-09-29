@@ -194,12 +194,12 @@ int main(int argc, char* argv[]) {
   assert(list.get_at(1) == 39);
   assert(list.front() == 13);
   assert(list.back() == 21);
-  list.pop_at(2); // 13 39 21
+  list.pop_at(3); // 13 39 47
   assert(list.empty() == false);
   assert(list.size() == 3);
   assert(list.get_at(1) == 39);
   assert(list.front() == 13);
-  assert(list.back() == 21);
+  assert(list.back() == 47);
   list.pop_front();
   list.pop_back();
   list.pop_back();
