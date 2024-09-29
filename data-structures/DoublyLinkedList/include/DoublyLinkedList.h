@@ -287,28 +287,6 @@ void DoublyLinkedList<T>::print_reverse() const{
 
 // Private functions
 template <typename T>
-typename DoublyLinkedList<T>::_Node *DoublyLinkedList<T>::get_node(const size_t index) const{
-  if(index == 0) {return _head;}
-  if(index == _size - 1) {return _tail;}
-  _Node *curr = nullptr;
-  if(index < _size / 2){
-    // from head
-    curr = _head;
-    for(size_t i = 0; i < index; ++i){
-      curr = curr->_next;
-    }
-  } 
-  else{
-    // from tail
-    curr = _tail;
-    for(size_t i = _size - 1; i > index; --i){
-      curr = curr->_prev;
-    }
-  }
-  return curr;
-}
-
-template <typename T>
 size_t DoublyLinkedList<T>::search(const T &value, bool from_head) const{
   _Node *current = nullptr;
   size_t curr_index = std::numeric_limits<size_t>::max();
@@ -328,6 +306,28 @@ size_t DoublyLinkedList<T>::search(const T &value, bool from_head) const{
     }
   }
   return current ? curr_index : std::numeric_limits<size_t>::max();
+}
+
+template <typename T>
+typename DoublyLinkedList<T>::_Node *DoublyLinkedList<T>::get_node(const size_t index) const{
+  if(index == 0) {return _head;}
+  if(index == _size - 1) {return _tail;}
+  _Node *curr = nullptr;
+  if(index < _size / 2){
+    // from head
+    curr = _head;
+    for(size_t i = 0; i < index; ++i){
+      curr = curr->_next;
+    }
+  } 
+  else{
+    // from tail
+    curr = _tail;
+    for(size_t i = _size - 1; i > index; --i){
+      curr = curr->_prev;
+    }
+  }
+  return curr;
 }
 
 // Destructor
