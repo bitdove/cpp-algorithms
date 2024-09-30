@@ -125,6 +125,7 @@ void test_vector(){
   assert(vec.front() == 12);
   assert(vec.back() == 34);
   assert(vec.at(1) == 21);
+  vec.shrink_to_fit(); // 12 21 34
   vec.insert(1, 46); // 12 46 21 34
   assert(vec.empty() == false);
   assert(vec.size() == 4);
@@ -161,6 +162,32 @@ void test_vector(){
   assert(vec.empty() == true);
   assert(vec.size() == 0);
   assert(vec.capacity() == 8);
+  for(int i = 0; i < 5; ++i){
+    vec.push_back(i);
+  } // 0 1 2 3 4 x x x
+  assert(vec.empty() == false);
+  assert(vec.size() == 5);
+  assert(vec.capacity() == 8);
+  assert(vec[1] == 1);
+  assert(vec.front() == 0);
+  assert(vec.back() == 4);
+  assert(vec.at(2) == 2);
+  vec.resize(6); // 0 1 2 3 4 0 x x
+  assert(vec.empty() == false);
+  assert(vec.size() == 6);
+  assert(vec.capacity() == 8);
+  assert(vec[1] == 1);
+  assert(vec.front() == 0);
+  assert(vec.back() == 0);
+  assert(vec.at(2) == 2);
+  vec.resize(4); // 0 1 2 3 x x x x
+  assert(vec.empty() == false);
+  assert(vec.size() == 4);
+  assert(vec.capacity() == 8);
+  assert(vec[1] == 1);
+  assert(vec.front() == 0);
+  assert(vec.back() == 3);
+  assert(vec.at(2) == 2);
   std::cout << " Vector ALL TEST PASSED!" << std::endl;
   std::cout << "*****Vector Test End*****" << std::endl;
 }
