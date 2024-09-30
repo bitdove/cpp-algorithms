@@ -188,6 +188,14 @@ void test_vector(){
   assert(vec.front() == 0);
   assert(vec.back() == 3);
   assert(vec.at(2) == 2);
+  vec.resize(10); // 0 1 2 3 0 0 0 0 0 0
+  assert(vec.empty() == false);
+  assert(vec.size() == 10);
+  assert(vec.capacity() == 10);
+  assert(vec[1] == 1);
+  assert(vec.front() == 0);
+  assert(vec.back() == 0);
+  assert(vec.at(2) == 2);
   std::cout << " Vector ALL TEST PASSED!" << std::endl;
   std::cout << "*****Vector Test End*****" << std::endl;
 }
