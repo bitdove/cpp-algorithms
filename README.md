@@ -29,6 +29,8 @@ Remember that each data has its own trade-offs. And you need to pay attention mo
   * `B` Doubly Linked List
 * `B` [Queue](data-structures/Queue)
 * `B` [Stack](data-structures/Stack)
+* `B` [Hash Table](data-structures/HashTable)
+
 
 
 ## Algorithms

@@ -26,6 +26,8 @@
   * `B` 双向链表
 * `B` [队列](data-structures/Queue)
 * `B` [栈](data-structures/Stack)
+* `B` [哈希表](data-structures/HashTable)
+
 
 
 
