@@ -112,7 +112,7 @@ Below is the list of some of the most used Big O notations and their performance
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MasonCodingHere/cpp-algorithms&type=Date)](https://star-history.com/#MasonCodingHere/cpp-algorithms&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=MasonCodingHere/cpp-algorithms&type=Timeline)](https://star-history.com/#MasonCodingHere/cpp-algorithms&Timeline)
 
 ## References
 1. [trekhleb's javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
