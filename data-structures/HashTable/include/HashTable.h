@@ -7,7 +7,7 @@
 #include <stdexcept>
 
 static const size_t _num_primes = 8;
-static const unsigned _prime_list[_num_primes] = {11, 13, 17, 19, 23, 29, 31, 37};
+static const size_t _prime_list[_num_primes] = {11, 13, 17, 19, 23, 29, 31, 37};
 
 template <typename Key, typename Value>
 class HashTable{
@@ -33,7 +33,7 @@ class HashTable{
     size_t bucket_size(const size_t n) const;
     size_t bucket(const Key& key) const;
   private:
-    unsigned _next_prime(unsigned n);
+    size_t _next_prime(const size_t n) const;
   private:
     struct _KVNode{
       Key _key;
@@ -45,7 +45,20 @@ class HashTable{
 
 // Constructor and Destructor
 template <typename Key, typename Value>
-HashTable<Key, Value>::HashTable() : _buckets(DefautBucketsCounts), _size(0) {}
+HashTable<Key, Value>::HashTable() : _buckets(*(_prime_list)), _size(0) {}
 
+// Private Functions
+template <typename Key, typename Value>
+size_t HashTable<Key, Value>::_next_prime(const size_t n) const{
+  const size_t *first = _prime_list;
+  const size_t *last = _prime_list + _num_primes;
+  if(n <= (*first)) {return *first;}
+  if(n >= (*(last - 1))) {return *(last - 1);}
+  const size_t pos = first;
+  while(pos != last && (*pos) < n){
+    ++pos;
+  }
+  return pos == last ? *(last - 1) : *pos;
+}
 
 #endif // HASHTABLE
