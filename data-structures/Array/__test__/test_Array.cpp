@@ -42,15 +42,126 @@ void test_array(){
     std::cout << arr_5[i] << " ";
   }
   std::cout << std::endl;
-  std::cout << "All tests passed!" << std::endl;
+  std::cout << "Array All tests passed!" << std::endl;
   std::cout << "*****Array Test End*****" << std::endl;
 }
 
 void test_vector(){
   std::cout << "*****Vector Test Begin*****" << std::endl;
-
-
-
+  Vector<int> vec_0(5);
+  assert(vec_0.empty() == false);
+  assert(vec_0.size() == 5);
+  assert(vec_0.capacity() == 5);
+  assert(vec_0[3] == 0);
+  Vector<int> vec_1(3, 77);
+  assert(vec_1.empty() == false);
+  assert(vec_1.size() == 3);
+  assert(vec_1.capacity() == 3);
+  assert(vec_1[1] == 77);
+  Vector<int> vec;
+  assert(vec.empty() == true);
+  assert(vec.size() == 0);
+  assert(vec.capacity() == 0);
+  try{
+    vec.front();
+  } catch(const std::underflow_error &e){
+    std::cout << "Vector::front() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    vec.back();
+  } catch(const std::underflow_error &e){
+    std::cout << "Vector::back() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    vec.pop_back();
+  } catch(const std::underflow_error &e){
+    std::cout << "Vector::pop_back() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    vec.at(0);
+  } catch(const std::out_of_range &e){
+    std::cout << "Vector::at() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    vec.insert(1, 99);
+  } catch(const std::out_of_range &e){
+    std::cout << "Vector::insert() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  try{
+    vec.erase(0);
+  } catch(const std::out_of_range &e){
+    std::cout << "Vector::erase() throw an exception PASSED: " << e.what() << std::endl;
+  }
+  vec.push_back(12); // 12
+  assert(vec.empty() == false);
+  assert(vec.size() == 1);
+  assert(vec.capacity() == 1);
+  assert(vec[0] == 12);
+  assert(vec.front() == 12);
+  assert(vec.back() == 12);
+  assert(vec.at(0) == 12);
+  vec.resize(1); // do nothing
+  vec.push_back(21); // 12 21
+  assert(vec.empty() == false);
+  assert(vec.size() == 2);
+  assert(vec.capacity() == 2);
+  assert(vec[1] == 21);
+  assert(vec.front() == 12);
+  assert(vec.back() == 21);
+  assert(vec.at(0) == 12);
+  vec.push_back(34); // 12 21 34
+  assert(vec.empty() == false);
+  assert(vec.size() == 3);
+  assert(vec.capacity() == 4);
+  assert(vec[1] == 21);
+  assert(vec.front() == 12);
+  assert(vec.back() == 34);
+  assert(vec.at(2) == 34);
+  vec.shrink_to_fit(); // 12 21 34
+  assert(vec.empty() == false);
+  assert(vec.size() == 3);
+  assert(vec.capacity() == 3);
+  assert(vec[0] == 12);
+  assert(vec.front() == 12);
+  assert(vec.back() == 34);
+  assert(vec.at(1) == 21);
+  vec.insert(1, 46); // 12 46 21 34
+  assert(vec.empty() == false);
+  assert(vec.size() == 4);
+  assert(vec.capacity() == 6);
+  assert(vec[1] == 46);
+  assert(vec.front() == 12);
+  assert(vec.back() == 34);
+  assert(vec.at(2) == 21);
+  vec.reserve(8); // 12 46 21 34
+  assert(vec.empty() == false);
+  assert(vec.size() == 4);
+  assert(vec.capacity() == 8);
+  assert(vec[1] == 46);
+  assert(vec.front() == 12);
+  assert(vec.back() == 34);
+  assert(vec.at(2) == 21);
+  vec.erase(2); // 12 46 34
+  assert(vec.empty() == false);
+  assert(vec.size() == 3);
+  assert(vec.capacity() == 8);
+  assert(vec[1] == 46);
+  assert(vec.front() == 12);
+  assert(vec.back() == 34);
+  assert(vec.at(1) == 46);
+  vec.pop_back(); // 12 46
+  assert(vec.empty() == false);
+  assert(vec.size() == 2);
+  assert(vec.capacity() == 8);
+  assert(vec[1] == 46);
+  assert(vec.front() == 12);
+  assert(vec.back() == 46);
+  assert(vec.at(0) == 12);
+  vec.clear(); // null
+  assert(vec.empty() == true);
+  assert(vec.size() == 0);
+  assert(vec.capacity() == 8);
+  std::cout << " Vector ALL TEST PASSED!" << std::endl;
   std::cout << "*****Vector Test End*****" << std::endl;
 }
 
