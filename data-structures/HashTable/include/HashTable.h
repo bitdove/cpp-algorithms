@@ -6,7 +6,8 @@
 #include <cstddef>
 #include <stdexcept>
 
-const size_t DefautBucketsCounts = 11;
+static const size_t _num_primes = 8;
+static const unsigned _prime_list[_num_primes] = {11, 13, 17, 19, 23, 29, 31, 37};
 
 template <typename Key, typename Value>
 class HashTable{
@@ -28,8 +29,11 @@ class HashTable{
     void clear();
     // Buckets
     size_t buckets_count() const;
+    size_t max_buckets_count() const;
     size_t bucket_size(const size_t n) const;
     size_t bucket(const Key& key) const;
+  private:
+    unsigned _next_prime(unsigned n);
   private:
     struct _KVNode{
       Key _key;
