@@ -200,9 +200,15 @@ void test_vector(){
   std::cout << "*****Vector Test End*****" << std::endl;
 }
 
+void test_String(){
+
+}
+
 int main() {
   test_array();
   std::cout << std::endl;
   test_vector();
+  std::cout << std::endl;
+  test_String();
   return 0;
 }

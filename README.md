@@ -25,6 +25,7 @@ Remember that each data has its own trade-offs. And you need to pay attention mo
 * `B` [Array](data-structures/Array)
   * `B` Static Array
   * `B` Dynamic Array
+  * `B` String
 * `B` [Linked List](data-structures/LinkedList)
   * `B` Singly Linked List
   * `B` Doubly Linked List

@@ -34,6 +34,8 @@ class HashTable{
     size_t bucket(const Key& key) const;
   private:
     size_t _next_prime(const size_t n) const;
+    size_t _bucket_num(const Key& key, size_t n);
+    size_t _hash(const Key& key);
   private:
     struct _KVNode{
       Key _key;
@@ -46,6 +48,31 @@ class HashTable{
 // Constructor and Destructor
 template <typename Key, typename Value>
 HashTable<Key, Value>::HashTable() : _buckets(*(_prime_list)), _size(0) {}
+
+// Elements access
+template <typename Key, typename Value>
+Value& HashTable<Key, Value>::at(const Key &key){
+
+}
+
+// Buckets
+template <typename Key, typename Value>
+size_t HashTable<Key, Value>::buckets_count() const{
+  return _buckets.size();
+}
+
+template <typename Key, typename Value>
+size_t HashTable<Key, Value>::max_buckets_count() const{
+  return *(_prime_list + _num_primes - 1);
+}
+
+template <typename Key, typename Value>
+size_t HashTable<Key, Value>::bucket_size(const size_t n) const{
+  if(n >= _buckets.size()){
+    throw std::out_of_range("HashTable::bucket_size(): Index out of range");
+  }
+  return _buckets[n].size();
+}
 
 // Private Functions
 template <typename Key, typename Value>
@@ -61,4 +88,14 @@ size_t HashTable<Key, Value>::_next_prime(const size_t n) const{
   return pos == last ? *(last - 1) : *pos;
 }
 
-#endif // HASHTABLE
+template <typename Key, typename Value>
+size_t HashTable<Key, Value>::_bucket_num(const Key &key, size_t n){
+  return _hash(key) % n;
+}
+
+template <typename Value>
+size_t HashTable<int, Value>::_hash(const int &key){
+  return key;
+}
+
+#endif // HASHTABLE_H

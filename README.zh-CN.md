@@ -21,6 +21,7 @@
 * `B` [数组](data-structures/Array)
   * `B` 静态数组
   * `B` 动态数组
+  * `B` 字符串
 * `B` [链表](data-structures/LinkedList)
   * `B` 单向链表
   * `B` 双向链表
