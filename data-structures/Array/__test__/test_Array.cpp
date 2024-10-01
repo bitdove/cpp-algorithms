@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../include/Array.h"
 #include "../include/Vector.h"
+#include "../include/String.h"
 
 void test_array(){
   std::cout << "*****Array Test Begin*****" << std::endl;
