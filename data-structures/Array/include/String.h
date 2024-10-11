@@ -48,14 +48,62 @@ class String{
     Vector<char> _data;
 };
 
-
 // Constructor and Desttructor
-String::String(){
-
-}
+String::String() : _data() {}
 
 String::~String(){
 
+}
+
+// Capacity
+bool String::empty() const{
+  return _data.empty();
+}
+
+size_t String::size() const{
+  return _data.size();
+}
+
+size_t String::length() const
+{
+  return _data.size();
+}
+
+size_t String::capacity() const{
+  return _data.capacity();
+}
+
+void String::reserve(const size_t n){
+  _data.reserve(n);
+}
+
+void String::resize(size_t n){
+  _data.resize(n);
+}
+
+void String::clear(){
+  _data.clear();
+}
+
+void String::shrink_to_fit(){
+  _data.shrink_to_fit();
+}
+
+// Elements access
+char& String::front(){
+  return _data.front();
+}
+
+char& String::back(){
+  return _data.back();
+}
+
+char& String::at(const size_t index){
+  return _data.at(index);
+}
+
+char& String::operator[](const size_t index){
+  return _data[index];
 }
 
 #endif // STRING_H
