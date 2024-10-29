@@ -10,6 +10,8 @@ class Vector{
     Vector();
     Vector(size_t N);
     Vector(size_t N, const T& value);
+    Vector(const Vector& vec);
+    Vector& operator=(const Vector& vec);
     ~Vector();
   public:
     // Capacity
@@ -65,6 +67,11 @@ Vector<T>::Vector(size_t N, const T &value) : _start(nullptr), _finish(nullptr),
       new(p) T(value);
     }
   }
+}
+
+template <typename T>
+Vector<T>::Vector(const Vector& vec){
+  
 }
 
 template <typename T>
